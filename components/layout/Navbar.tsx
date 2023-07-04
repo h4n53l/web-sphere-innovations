@@ -16,17 +16,13 @@ const Navbar = ({dark}: any) => {
             <Link href="/">
               
                 Home
-                <span className="dd-trigger">
-                  <i className="fas fa-angle-down" />
+                <span className="">
                 </span>
               
             </Link>
-            <ul className="submenu">
-              <Home />
-            </ul>
           </li>
           <li>
-            <Link href="/services">
+            <Link href="#">
                 Services
                 <span className="dd-trigger">
                   <i className="fas fa-angle-down" />

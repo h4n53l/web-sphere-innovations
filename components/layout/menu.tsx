@@ -34,13 +34,13 @@ export const Home = () => {
 export const Services = () => (
   <Fragment>
     <li>
-      <Link href={`${rtl()}marketing-services`}>Web Design</Link>
+      <Link href={`${rtl()}web-design-service`}>Web Design</Link>
     </li>
     <li>
-      <Link href={`${rtl()}agency-services`}>Search Engine Optimisation</Link>
+      <Link href={`${rtl()}seo-services`}>Search Engine Optimisation</Link>
     </li>
     <li>
-      <Link href={`${rtl()}service-details`}>Content Management Services</Link>
+      <Link href={`${rtl()}cms-services`}>Content Management Services</Link>
     </li>
   </Fragment>
 );
