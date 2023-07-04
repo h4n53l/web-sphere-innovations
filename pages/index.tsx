@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import Hero from '@/components/Hero'
-import Services from '@/components/Services'
+import Services from '@/components/services/Services'
 import Features from '@/components/Features'
 import { Head } from 'next/document'
 import Stats from '@/components/Stats'
