@@ -1,0 +1,204 @@
+/*======= Iconic Box =======*/
+.iconic-box {
+    background-color: $color-primary-7;
+    padding: 30px 40px 25px;
+    border-radius: 5px;
+
+    .icon {
+        font-size: 50px;
+        line-height: 0.5;
+        color: $color-primary;
+        margin-bottom: 20px;
+        max-width: 55px;
+
+        img,
+        i {
+            transition: all 1s ease;
+        }
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    &.icon-left {
+        display: flex;
+        align-items: flex-start;
+
+        .icon {
+            margin-bottom: 0;
+            margin-right: 20px;
+            flex: 0 0 55px;
+        }
+    }
+
+    &:hover {
+        .icon {
+            img,
+            i {
+                transform: rotateY(360deg);
+            }
+        }
+    }
+}
+
+/*======= Iconic Box Two =======*/
+.iconic-box-two {
+    display: flex;
+    padding: 25px 30px;
+    border-radius: 7px;
+    border: 1px solid $color-off-white;
+    transition: 0.3s;
+
+    .icon {
+        width: 55px;
+        flex: 0 0 55px;
+        margin-right: 30px;
+
+        img,
+        i {
+            transition: all 1s ease;
+        }
+    }
+
+    .content {
+        flex-grow: 1;
+        line-height: 1.7;
+    }
+
+    .title {
+        font: {
+            family: $font-nunito;
+            size: 24px;
+            weight: 700;
+        }
+        margin-bottom: 8px;
+    }
+
+    .box-link {
+        display: inline-block;
+        font: {
+            family: $font-nunito-sans;
+            size: 16px;
+            weight: 700;
+        }
+        line-height: 1;
+        color: $color-body;
+        margin-top: 15px;
+        position: relative;
+        padding-left: 50px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 2px;
+            background-color: $color-body;
+        }
+    }
+
+    .title,
+    p,
+    .box-link,
+    .box-link::before {
+        transition: 0.3s;
+    }
+
+    &.white-version {
+        border-color: $color-white-10;
+
+        .title,
+        .title a,
+        p,
+        .box-link {
+            color: $color-white;
+        }
+
+        .box-link::before {
+            background-color: $color-white;
+        }
+    }
+
+    &:hover {
+        background-color: #6c6ff2;
+        border-color: #6c6ff2;
+
+        .title,
+        .title a,
+        p,
+        .box-link {
+            color: $color-white;
+        }
+
+        .box-link::before {
+            background-color: $color-white;
+        }
+
+        .icon {
+            img,
+            i {
+                transform: rotateY(360deg);
+            }
+        }
+    }
+}
+
+/*======= Iconic Bordered Box =======*/
+.iconic-bordered-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid $color-primary-7;
+    border-left: 1px solid $color-primary-7;
+
+    .single-box {
+        max-width: 25%;
+        flex: 0 0 25%;
+        text-align: center;
+        padding: 45px 40px;
+        border: 1px solid $color-primary-7;
+        border-top: 0;
+        border-left: 0;
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            margin-bottom: 35px;
+        }
+
+        &.view-more {
+            border: none;
+            background-color: $color-primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .template-btn {
+                border: 1px solid $color-white;
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+        }
+    }
+
+    &.white-version {
+        border-color: $color-white-10;
+
+        .single-box {
+            border-color: $color-white-10;
+
+            .title a,
+            p {
+                color: $color-white;
+            }
+        }
+    }
+}

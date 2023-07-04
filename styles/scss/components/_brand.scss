@@ -1,0 +1,60 @@
+/*======= Brand section =======*/
+.brand-logo-section {
+    .logo-carousel {
+        padding: 50px 70px;
+        background-color: $color-white;
+        box-shadow: 0px 20px 100px 0px rgba(58, 65, 111, 0.1);
+        text-align: center;
+    }
+}
+
+/*======= Clients section =======*/
+.clients-section {
+    padding: 60px 0;
+
+    .client-carousel-heading {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        margin-bottom: 45px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+        h6 {
+            color: $color-white;
+            font-size: 20px;
+            position: relative;
+            padding-left: 50px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 30px;
+                height: 2px;
+                background-color: $color-white;
+            }
+        }
+    }
+
+    .client-carousel-arrows {
+        .slick-arrow {
+            width: 32px;
+            height: 32px;
+            border-radius: 5px;
+            background-color: #323b8a;
+            color: $color-white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+
+            &.next-arrow {
+                background-color: $color-fourth;
+                margin-left: 10px;
+            }
+        }
+    }
+}
