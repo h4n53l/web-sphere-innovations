@@ -36,12 +36,14 @@ export const servicesPage = [
   serviceHeading: "Streamline Your Content with Expert Content Management Services", 
   description: "At Web Sphere Innovations, we understand the importance of managing your website's content effectively. A well-organized and up-to-date website not only enhances user experience but also contributes to better search engine rankings. That's why we offer comprehensive Content Management Services tailored to your specific needs. Our team of experienced content managers is well-versed in the latest content management systems and strategies. Whether you have a small business website or a large-scale enterprise platform, we have the expertise to streamline your content and ensure it aligns with your business objectives.", 
   subServiceList: [
-    {subService: "x", 
-    description: "x"},
-    {subService: "x", 
-    description: "x"},
-    {subService: "x", 
-    description: "x"},
+    {subService: "Content Strategy Development", 
+    description: "We work closely with you to develop a customized content strategy aligned with your business goals and target audience. Our team conducts in-depth research to identify relevant topics, keywords, and trends that resonate with your audience, ensuring that your content is both valuable and highly discoverable."},
+    {subService: "Content Creation and Optimization", 
+    description: "Our skilled content managers work closely with you to create compelling, engaging, and SEO-friendly content. We conduct thorough research on your target audience, industry trends, and keywords to develop content that resonates with your readers and drives organic traffic to your website."},
+    {subService: "Content Updates and Maintenance", 
+    description: "Keeping your website up-to-date is crucial for maintaining user engagement and search engine visibility. Our team handles regular content updates, including adding new pages, refreshing existing content, and ensuring that your website reflects the latest developments in your industry."},
+    {subService: "Content Governance and Quality Control", 
+    description: "Consistency and quality are vital aspects of content management. We establish content governance guidelines, ensuring that your brand voice, tone, and style are maintained throughout your website. Our quality control measures guarantee error-free content that reflects your professionalism."},
   ]
  },
 ];
