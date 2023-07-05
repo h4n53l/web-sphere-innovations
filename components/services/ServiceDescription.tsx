@@ -5,7 +5,8 @@ type propTypes = {serviceHeading: string,
     }
 
 const ServiceDescription = ({serviceHeading, description, subServiceList}: propTypes) => {
-    return (
+
+  return (
         <section className="about-section section-gap overflow-hidden">
         <div className="custom-container-fluid">
           <div className="row align-items-center justify-content-xl-start justify-content-center">
@@ -20,14 +21,14 @@ const ServiceDescription = ({serviceHeading, description, subServiceList}: propT
                 <p>{description}
                 </p>
                 <ul className="circle-list mb-40 mt-30 wow fadeInUp">
-                    {
+                     {
                         subServiceList.map((subService, index)=> {return(
                             <>
                             <li key={index}>{subService.subService}</li>
                             <p className="mb-40">{subService.description}</p>
                             </>
                         )})
-                    }
+                    } 
                 </ul>
                 <a href="#" className="template-btn bordered-btn">
                   Find out more <i className="fas fa-long-arrow-right" />
