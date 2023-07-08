@@ -17,7 +17,7 @@ type propTypes = {
  }
  }
 
-const Service = ({pageInfo}: propTypes) => {
+const Service = ({pageInfo}: any) => {
   
     return (
         <Fragment>
@@ -96,17 +96,16 @@ subServiceList={pageInfo.subServiceList}
 
 export default Service;
 
-
-export const getStaticPaths: GetStaticPaths = () => {
-  const paths = servicesPage.map((pageData)=> {return {params: { services: pageData.slug }}});
+// export const getStaticPaths: GetStaticPaths = () => {
+//   const paths = servicesPage.map((pageData)=> {return {params: { services: pageData.slug }}});
   
-  return {
-    paths: paths,
-    fallback: true,
-  };
-};
+//   return {
+//     paths: paths,
+//     fallback: true,
+//   };
+// };
 
-export const getStaticProps: GetStaticProps = (context) => {
+export const getServerSideProps: GetStaticProps = (context) => {
   const { params } = context;
   const services  = params!.services;
 
