@@ -96,7 +96,7 @@ export const servicesPages = [
 export const projectPages = [
   {
     slug: "project-details",
-    title: "x",
+    title: "NelSight Website",
     category: "x",
     client: "x",
     duration: "x",
