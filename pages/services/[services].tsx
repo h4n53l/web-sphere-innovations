@@ -19,7 +19,7 @@ type propTypes = {
 
 const Service = ({pageInfo}: propTypes) => {
   const router = useRouter()
-  
+  //@ts-ignore
   const pageText = pageInfo!.filter((pageData)=> {return pageData.slug === router.query.services})
   
     return (
