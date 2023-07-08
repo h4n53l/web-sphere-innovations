@@ -32,9 +32,9 @@ const Navbar = ({dark}: any) => {
               <Services />
             </ul>
           </li>
-          <li>
+          {/* <li>
               <Works />
-          </li>
+          </li> */}
           <li>
             <a href="#">
               About Us

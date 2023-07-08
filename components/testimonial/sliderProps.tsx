@@ -198,8 +198,8 @@ const PrvArrow = ({ className, style, onClick, extraClass, icon }: any) => {
   
   export const portfolioslider = {
     infinite: true,
-    dots: false,
-    arrows: false,
+    dots: true,
+    arrows: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

@@ -1,6 +1,6 @@
 import PageTitle from "@/components/layout/PageTitle";
 import ServiceDescription from "@/components/services/ServiceDescription";
-import { servicesPage } from "@/utilities/pageTexts";
+import { servicesPages } from "@/utilities/pageTexts";
 import { GetStaticPaths, GetStaticProps } from "next"
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -17,7 +17,7 @@ type propTypes = {
  }
  }
 
-const Service = ({pageInfo}: any) => {
+const Service = ({pageInfo}: propTypes) => {
   
     return (
         <Fragment>
@@ -96,21 +96,11 @@ subServiceList={pageInfo.subServiceList}
 
 export default Service;
 
-// export const getStaticPaths: GetStaticPaths = () => {
-//   const paths = servicesPage.map((pageData)=> {return {params: { services: pageData.slug }}});
-  
-//   return {
-//     paths: paths,
-//     fallback: true,
-//   };
-// };
-
 export const getServerSideProps: GetStaticProps = (context) => {
   const { params } = context;
   const services  = params!.services;
 
-
-    const pageInfo = servicesPage.filter((pageData)=> {return pageData.slug === services})[0];
+    const pageInfo = servicesPages.filter((pageData)=> {return pageData.slug === services})[0];
   
     return {
       props: { pageInfo },

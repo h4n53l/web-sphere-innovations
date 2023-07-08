@@ -51,125 +51,118 @@ const ProjectsIsotope = () => {
             className={`c-pointer ${activeBtn("design")}`}
             onClick={handleFilterKeyChange("design")}
           >
-            Design
+            Web Design
           </li>
           <li
-            data-filter=".motions"
-            className={`c-pointer ${activeBtn("motions")}`}
-            onClick={handleFilterKeyChange("motions")}
+            data-filter=".seo"
+            className={`c-pointer ${activeBtn("seo")}`}
+            onClick={handleFilterKeyChange("seo")}
           >
-            Motions
+            SEO
           </li>
           <li
-            data-filter=".graphics"
-            className={`c-pointer ${activeBtn("graphics")}`}
-            onClick={handleFilterKeyChange("graphics")}
+            data-filter=".cms"
+            className={`c-pointer ${activeBtn("cms")}`}
+            onClick={handleFilterKeyChange("cms")}
           >
-            Graphics
-          </li>
-          <li
-            data-filter=".branding"
-            className={`c-pointer ${activeBtn("branding")}`}
-            onClick={handleFilterKeyChange("branding")}
-          >
-            Branding
+            CMS
           </li>
         </ul>
       </div>
       <div className="row filter-items">
-        <div className="col-lg-4 col-sm-6 filter-item design graphics">
+        <div className="col-lg-4 col-sm-6 filter-item design cms">
           <div className="portfolio-items-two mt-50">
             <div className="portfolio-thumb">
               <img src="/assets/img/portfolio/05.jpg" alt="Image" />
-              <Link href="/portfolio-details"/>
+              <Link href="projects/project-details"/>
             </div>
             <div className="portfolio-content">
               <h4 className="title">
-                <Link href="/portfolio-details">Digital Agency Template</Link>
+                <Link href="projects/project-details">Digital Agency Template</Link>
               </h4>
               <div className="categories">
-                <a href="#">Marketing Strategy</a>
+                <a href="#">View Details</a>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-sm-6 filter-item motions branding">
+        <div className="col-lg-4 col-sm-6 filter-item seo branding">
           <div className="portfolio-items-two mt-50">
             <div className="portfolio-thumb">
               <img src="/assets/img/portfolio/06.jpg" alt="Image" />
-              <Link href="/portfolio-details"/>
+              <Link href="projects/project-details"/>
             </div>
             <div className="portfolio-content">
               <h4 className="title">
-                <Link href="/portfolio-details">Chatbot Web Template</Link>
+                <Link href="projects/project-details">Chatbot Web Template</Link>
               </h4>
               <div className="categories">
-                <a href="#">Marketing Strategy</a>
+                <a href="#">View Details</a>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-sm-6 filter-item design graphics">
+        <div className="col-lg-4 col-sm-6 filter-item design cms">
           <div className="portfolio-items-two mt-50">
             <div className="portfolio-thumb">
               <img src="/assets/img/portfolio/07.jpg" alt="Image" />
-              <Link href="/portfolio-details"/>
+              <Link href="projects/project-details"/>
             </div>
             <div className="portfolio-content">
               <h4 className="title">
-                <Link href="/portfolio-details">Digital Products Design</Link>
+                <Link href="projects/project-details">Digital Products Design</Link>
               </h4>
               <div className="categories">
-                <a href="#">Marketing Strategy</a>
+                <a href="#">View Details</a>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-sm-6 filter-item motions branding">
+        <div className="col-lg-4 col-sm-6 filter-item seo branding">
           <div className="portfolio-items-two mt-50">
             <div className="portfolio-thumb">
               <img src="/assets/img/portfolio/08.jpg" alt="Image" />
-              <Link href="/portfolio-details"/>
+              <Link href="projects/project-details"/>
             </div>
             <div className="portfolio-content">
               <h4 className="title">
-                <Link href="/portfolio-details">Digital Agency Template</Link>
+                <Link href="projects/project-details">Digital Agency Template</Link>
               </h4>
               <div className="categories">
-                <a href="#">Marketing Strategy</a>
+                <a href="#">View Details</a>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-sm-6 filter-item design graphics">
+        <div className="col-lg-4 col-sm-6 filter-item design cms">
           <div className="portfolio-items-two mt-50">
             <div className="portfolio-thumb">
               <img src="/assets/img/portfolio/09.jpg" alt="Image" />
-              <Link href="/portfolio-details"/>
+              <Link href="projects/project-details"/>
             </div>
             <div className="portfolio-content">
               <h4 className="title">
-                <Link href="/portfolio-details">Fitness Program Template</Link>
+                <Link href="projects/project-details">Fitness Program Template</Link>
               </h4>
               <div className="categories">
-                <a href="#">Marketing Strategy</a>
+                <a href="#">View Details</a>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-sm-6 filter-item motions branding">
+        <div className="col-lg-4 col-sm-6 filter-item seo branding">
           <div className="portfolio-items-two mt-50">
             <div className="portfolio-thumb">
               <img src="/assets/img/portfolio/10.jpg" alt="Image" />
-              <Link href="/portfolio-details" />
+              <Link href="projects/project-details" />
                 
             </div>
             <div className="portfolio-content">
               <h4 className="title">
-                <Link href="/portfolio-details">E-Wallet Template</Link>
+                <Link href="projects/project-details">E-Wallet Template</Link>
               </h4>
               <div className="categories">
-                <a href="#">Marketing Strategy</a>
+                <a href="#">View Details</a>
               </div>
             </div>
           </div>

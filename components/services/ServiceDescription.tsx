@@ -23,10 +23,10 @@ const ServiceDescription = ({serviceHeading, description, subServiceList}: propT
                 <ul className="circle-list mb-40 mt-30 wow fadeInUp">
                      {
                         subServiceList.map((subService, index)=> {return(
-                            <>
-                            <li key={index}>{subService.subService}</li>
+                            <div key={index}>
+                            <li>{subService.subService}</li>
                             <p className="mb-40">{subService.description}</p>
-                            </>
+                            </div>
                         )})
                     } 
                 </ul>
