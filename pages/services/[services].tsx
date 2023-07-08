@@ -14,23 +14,20 @@ type propTypes = {
   serviceHeading: string,
   description: string,
    subServiceList: {subService: string, description: string}[]
- }[]
+ }
  }
 
 const Service = ({pageInfo}: propTypes) => {
-  const router = useRouter()
-  //@ts-ignore
-  const pageText = pageInfo!.filter((pageData)=> {return pageData.slug === router.query.services})
   
     return (
         <Fragment>
-        <PageTitle pageTitle={pageText[0].title}/>
+        <PageTitle pageTitle={pageInfo.title}/>
         {/*====== Page Title Area End ======*/}
         {/*====== About Area Start ======*/}
 <ServiceDescription 
-serviceHeading={pageText[0].serviceHeading} 
-description={pageText[0].description} 
-subServiceList={pageText[0].subServiceList} 
+serviceHeading={pageInfo.serviceHeading} 
+description={pageInfo.description} 
+subServiceList={pageInfo.subServiceList} 
 />
         {/*====== About Area End ======*/}
         {/*====== Service Section Start ======*/}
@@ -109,8 +106,12 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = () => {
-    const pageInfo = servicesPage;
+export const getStaticProps: GetStaticProps = (context) => {
+  const { params } = context;
+  const services  = params!.services;
+
+
+    const pageInfo = servicesPage.filter((pageData)=> {return pageData.slug === services})[0];
   
     return {
       props: { pageInfo },
