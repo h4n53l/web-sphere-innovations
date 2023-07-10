@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^6.1.7",
+    "@sanity/image-url": "^1.0.2",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
