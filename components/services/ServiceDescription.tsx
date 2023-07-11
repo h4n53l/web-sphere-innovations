@@ -1,7 +1,7 @@
 
 type propTypes = {serviceHeading: string,
      description: string,
-      subServiceList: {subService: string, description: string}[]
+      subServiceList: {service: string, description: string}[]
     }
 
 const ServiceDescription = ({serviceHeading, description, subServiceList}: propTypes) => {
@@ -24,7 +24,7 @@ const ServiceDescription = ({serviceHeading, description, subServiceList}: propT
                      {
                         subServiceList.map((subService, index)=> {return(
                             <div key={index}>
-                            <li>{subService.subService}</li>
+                            <li>{subService.service}</li>
                             <p className="mb-40">{subService.description}</p>
                             </div>
                         )})

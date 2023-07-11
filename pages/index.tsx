@@ -6,9 +6,11 @@ import Stats from '@/components/Stats'
 import Portfolio from '@/components/projects/Portfolio'
 import HireUs from '@/components/HireUs'
 import Testimonials from '@/components/testimonial/Testimonials'
+import { sanityClient } from '@/utilities/sanityInit'
 
 
-export default function Home() {
+export default function Home({reviews, projects}) {
+  console.log(projects)
   return (
       <Fragment>
         {/* <head>
@@ -19,10 +21,27 @@ export default function Home() {
 <div className="section-blob-bg">
 <Features/>
 <Stats />
-<Portfolio />
+<Portfolio projects={projects}/>
 </div>
 <HireUs />
-<Testimonials />
+<Testimonials reviews={reviews}/>
     </Fragment>
   )
 }
+
+export const getStaticProps = async () => {
+
+const reviews = await sanityClient.fetch(`*[ _type == "reviews"]`);
+const projects = await sanityClient.fetch(`*[ _type == "projects"]`);
+
+console.log(reviews)
+if (!reviews) {
+  return {
+    notFound: true,
+  };
+} else {
+  return {
+    props: { reviews, projects },
+  };
+}
+};

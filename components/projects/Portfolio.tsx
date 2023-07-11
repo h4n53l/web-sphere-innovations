@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Portfolio = () => {
+const Portfolio = ({projects}) => {
 
     const ProjectsIsotope = dynamic(
         () => import("./ProjectsIsotope"),
@@ -16,7 +16,7 @@ const Portfolio = () => {
             <h2 className="title">Some Of Our Latest Projects</h2>
             <span className="tagline">Web Sphere Innovations</span>
           </div>
-          <ProjectsIsotope />
+          <ProjectsIsotope projects={projects}/>
         </div>
       </section>
     )

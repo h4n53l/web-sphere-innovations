@@ -1,33 +1,31 @@
 import PageTitle from "@/components/layout/PageTitle";
 import ServiceDescription from "@/components/services/ServiceDescription";
-import { servicesPages } from "@/utilities/pageTexts";
 import { sanityClient } from "@/utilities/sanityInit";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Fragment } from "react";
 
 type propTypes = {
   pageInfo: {
     title: string;
     slug: string;
-    serviceHeading: string;
+    heading: string;
     description: string;
-    subServiceList: { subService: string; description: string }[];
+    details: { service: string; description: string }[];
   };
 };
 
-const Service = ({ pageInfo }) => {
+const Service = ({ pageInfo }: propTypes) => {
   return (
     <Fragment>
       <PageTitle pageTitle={pageInfo.title} />
       {/*====== Page Title Area End ======*/}
       {/*====== About Area Start ======*/}
-      {/* <ServiceDescription
-        serviceHeading={pageInfo.serviceHeading}
+       <ServiceDescription
+        serviceHeading={pageInfo.heading}
         description={pageInfo.description}
-        subServiceList={pageInfo.subServiceList}
-      /> */}
+        subServiceList={pageInfo.details}
+      /> 
       {/*====== About Area End ======*/}
       {/*====== Service Section Start ======*/}
       <section
@@ -94,24 +92,18 @@ const Service = ({ pageInfo }) => {
 export default Service;
 
 
-export const getServerSideProps = async (context: {
-  query: { slug: string };
-}) => {
-  const pageSlug = context.query.slug;
-
-  console.log(pageSlug);
+export const getStaticProps = async (params: { params: { slug: any; }; }) => {
+  const pageSlug = params.params.slug;
+  console.log(params);
 
   if (!pageSlug) {
     return {
       notFound: true,
     };
   }
-
-  // const query = encodeURIComponent(
     const query = `*[ _type == "services" && slug.current == "${pageSlug}"]`;
-  // const url = `https://nfvjxp0o.api.sanity.io/v1/data/query/production?query=${query}`;
 
-  const result = await sanityClient.fetch(query) //.then((response) => response.json());
+  const result = await sanityClient.fetch(query) 
   const pageInfo = result[0];
   if (!pageInfo) {
     return {
@@ -122,4 +114,17 @@ export const getServerSideProps = async (context: {
       props: { pageInfo },
     };
   }
+};
+
+export const getStaticPaths = async () => {
+
+    const query = `*[ _type == "services"].slug.current`;
+
+  const services = await sanityClient.fetch(query)
+
+  const paths = services.map(( slug: any) =>({
+     params: {slug}
+  }));
+
+  return { paths, fallback: false };
 };

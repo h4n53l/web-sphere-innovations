@@ -155,3 +155,7 @@ export const reviews = [
     company: "NelSight Analytics Technologies",
   },
 ];
+
+export type Review = {
+  
+}

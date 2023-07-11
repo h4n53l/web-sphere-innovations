@@ -1,8 +1,10 @@
+import { Fragment, useEffect, useRef, useState } from "react";
 import Isotope from "isotope-layout";
 import Link from "next/link";
-import { Fragment, SetStateAction, useEffect, useRef, useState } from "react";
+import { urlFor } from "@/utilities/sanityInit";
 
-const ProjectsIsotope = () => {
+
+const ProjectsIsotope = ({projects}) => {
  
   const isotope = useRef();
   const [filterKey, setFilterKey] = useState("*");
@@ -70,103 +72,25 @@ const ProjectsIsotope = () => {
         </ul>
       </div>
       <div className="row filter-items">
-        <div className="col-lg-4 col-sm-6 filter-item design cms">
-          <div className="portfolio-items-two mt-50">
-            <div className="portfolio-thumb">
-              <img src="/assets/img/portfolio/05.jpg" alt="Image" />
-              <Link href="projects/project-details"/>
-            </div>
-            <div className="portfolio-content">
-              <h4 className="title">
-                <Link href="projects/project-details">Digital Agency Template</Link>
-              </h4>
-              <div className="categories">
-                <a href="#">View Details</a>
-              </div>
+        {projects.map((project, index) =>{ return (
+        <div className={`col-lg-4 col-sm-6 filter-item ${project.category}`}>
+        <div className="portfolio-items-two mt-50">
+          <div className="portfolio-thumb">
+            <img src={urlFor(project.mainImage).width(370).url()} alt={project.title} />
+            <Link href={`projects/${project.slug.current}`}/>
+          </div>
+          <div className="portfolio-content">
+            <h4 className="title">
+              <Link href={`projects/${project.slug.current}`}>{project.title}</Link>
+            </h4>
+            <div className="categories">
+              <a href={`projects/${project.slug.current}`}>View Details</a>
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-sm-6 filter-item seo branding">
-          <div className="portfolio-items-two mt-50">
-            <div className="portfolio-thumb">
-              <img src="/assets/img/portfolio/06.jpg" alt="Image" />
-              <Link href="projects/project-details"/>
-            </div>
-            <div className="portfolio-content">
-              <h4 className="title">
-                <Link href="projects/project-details">Chatbot Web Template</Link>
-              </h4>
-              <div className="categories">
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-4 col-sm-6 filter-item design cms">
-          <div className="portfolio-items-two mt-50">
-            <div className="portfolio-thumb">
-              <img src="/assets/img/portfolio/07.jpg" alt="Image" />
-              <Link href="projects/project-details"/>
-            </div>
-            <div className="portfolio-content">
-              <h4 className="title">
-                <Link href="projects/project-details">Digital Products Design</Link>
-              </h4>
-              <div className="categories">
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-4 col-sm-6 filter-item seo branding">
-          <div className="portfolio-items-two mt-50">
-            <div className="portfolio-thumb">
-              <img src="/assets/img/portfolio/08.jpg" alt="Image" />
-              <Link href="projects/project-details"/>
-            </div>
-            <div className="portfolio-content">
-              <h4 className="title">
-                <Link href="projects/project-details">Digital Agency Template</Link>
-              </h4>
-              <div className="categories">
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-4 col-sm-6 filter-item design cms">
-          <div className="portfolio-items-two mt-50">
-            <div className="portfolio-thumb">
-              <img src="/assets/img/portfolio/09.jpg" alt="Image" />
-              <Link href="projects/project-details"/>
-            </div>
-            <div className="portfolio-content">
-              <h4 className="title">
-                <Link href="projects/project-details">Fitness Program Template</Link>
-              </h4>
-              <div className="categories">
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-4 col-sm-6 filter-item seo branding">
-          <div className="portfolio-items-two mt-50">
-            <div className="portfolio-thumb">
-              <img src="/assets/img/portfolio/10.jpg" alt="Image" />
-              <Link href="projects/project-details" />
-                
-            </div>
-            <div className="portfolio-content">
-              <h4 className="title">
-                <Link href="projects/project-details">E-Wallet Template</Link>
-              </h4>
-              <div className="categories">
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+        )})}
+
       </div>
     </Fragment>
   );

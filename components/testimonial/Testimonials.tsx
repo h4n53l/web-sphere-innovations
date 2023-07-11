@@ -1,6 +1,6 @@
 import TestimonialSlider from "./TestimonialSlider";
 
-const Testimonials = () => {
+const Testimonials = ({reviews}: any) => {
     return (
         <section className="testimonial-section section-gap">
         <div className="container">
@@ -9,7 +9,7 @@ const Testimonials = () => {
               <h2 className="title">What’s Clients Say</h2>
               <span className="tagline">Best SEO Optimization Agency</span>
             </div>
-            <TestimonialSlider />
+            <TestimonialSlider reviews={reviews}/>
           </div>
         </div>
       </section>

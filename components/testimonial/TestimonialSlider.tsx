@@ -1,16 +1,17 @@
 import { Fragment } from "react";
 import Slider from "react-slick";
 import { testimonialslidertwo } from "./sliderProps";
-import { reviews } from "@/utilities/pageTexts";
+import { urlFor } from "@/utilities/sanityInit";
 
 
-const TestimonialSlider = () => {
-    return (
-        <Fragment>
+const TestimonialSlider = ({reviews}: any) => {
+  return (
+    <Fragment>
         {" "}
         <Slider {...testimonialslidertwo} className="testimonial-slider-two row">
-{reviews.map((review) =>{ return (
-          <div className="testimonial-item">
+{reviews.map((review, index: number) =>{ 
+  return (
+          <div key={index} className="testimonial-item">
             <div className="content">
               <p>
                 {review.review}
@@ -18,10 +19,10 @@ const TestimonialSlider = () => {
             </div>
             <div className="author">
               <div className="author-photo">
-                <img src="/assets/img/author/01.png" alt="William P. Harris" />
+                <img src={urlFor(review.avatar).width(200).url()} alt={review.author} />
               </div>
               <div className="author-info">
-                <h4 className="name">{review.name}</h4>
+                <h4 className="name">{review.author}</h4>
                 <span className="title">{review.company}</span>
               </div>
             </div>

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Slider from "react-slick";
 import { portfolioslider } from "../testimonial/sliderProps";
+import { urlFor } from "@/utilities/sanityInit";
 
-const ProjectsSlider = () => {
+const ProjectsSlider = ({projects}) => {
     return (
         <section className="related-portfolio bg-color-primary-7 section-gap">
         <div className="container">
@@ -11,104 +12,23 @@ const ProjectsSlider = () => {
             <span className="tagline">Web Sphere Innovations</span>
           </div>
           <Slider {...portfolioslider} className="row portfolio-slider">
-            <div className="portfolio-items-two">
-              <div className="portfolio-thumb">
-                <img src="../assets/img/portfolio/05.jpg" alt="Image" />
-                <Link href="/portfolio-details portfolio-link">
-                  {/* <a className="" /> */}
-                </Link>
-              </div>
-              <div className="portfolio-content">
-                <h4 className="title">
-                  <Link href="/portfolio-details">Digital Agency Template</Link>
-                </h4>
-                <div className="categories">
-                  <a href="#">Marketing Strategy</a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-items-two">
-              <div className="portfolio-thumb">
-                <img src="../assets/img/portfolio/06.jpg" alt="Image" />
-                <Link href="/portfolio-details portfolio-link">
-                  {/* <a className="" /> */}
-                </Link>
-              </div>
-              <div className="portfolio-content">
-                <h4 className="title">
-                  <Link href="/portfolio-details">Chatbot Web Template</Link>
-                </h4>
-                <div className="categories">
-                  <a href="#">Marketing Strategy</a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-items-two">
-              <div className="portfolio-thumb">
-                <img src="../assets/img/portfolio/07.jpg" alt="Image" />
-                <Link href="/portfolio-details portfolio-link">
-                  {/* <a className="" /> */}
-                </Link>
-              </div>
-              <div className="portfolio-content">
-                <h4 className="title">
-                  <Link href="/portfolio-details">Digital Products Design</Link>
-                </h4>
-                <div className="categories">
-                  <a href="#">Marketing Strategy</a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-items-two">
-              <div className="portfolio-thumb">
-                <img src="../assets/img/portfolio/08.jpg" alt="Image" />
-                <Link href="/portfolio-details portfolio-link">
-                  {/* <a className="" /> */}
-                </Link>
-              </div>
-              <div className="portfolio-content">
-                <h4 className="title">
-                  <Link href="/portfolio-details">Digital Agency Template</Link>
-                </h4>
-                <div className="categories">
-                  <a href="#">Marketing Strategy</a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-items-two">
-              <div className="portfolio-thumb">
-                <img src="../assets/img/portfolio/09.jpg" alt="Image" />
-                <Link href="/portfolio-details portfolio-link">
-                  {/* <a className="" /> */}
-                </Link>
-              </div>
-              <div className="portfolio-content">
-                <h4 className="title">
-                  <Link href="/portfolio-details">
-                    Fitness Program Template
-                  </Link>
-                </h4>
-                <div className="categories">
-                  <a href="#">Marketing Strategy</a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-items-two">
-              <div className="portfolio-thumb">
-                <img src="../assets/img/portfolio/10.jpg" alt="Image" />
-                <Link href="/portfolio-details portfolio-link">
-                  {/* <a className="" /> */}
-                </Link>
-              </div>
-              <div className="portfolio-content">
-                <h4 className="title">
-                  <Link href="/portfolio-details">E-Wallet Template</Link>
-                </h4>
-                <div className="categories">
-                  <a href="#">Marketing Strategy</a>
-                </div>
-              </div>
-            </div>
+          {projects.map((project, index) =>{ return (
+                        <div className="portfolio-items-two">
+                        <div className="portfolio-thumb">
+                          <img src={urlFor(project.mainImage).width(370).url()} alt={project.title} />
+                          <Link href={`projects/${project.slug.current}`}/>
+                        </div>
+                        <div className="portfolio-content">
+                          <h4 className="title">
+                            <Link href="/portfolio-details">{project.title}</Link>
+                          </h4>
+                          <div className="categories">
+                            <a href="#">{(project.category)}</a>
+                          </div>
+                        </div>
+                      </div>
+        )})}
+
           </Slider>
         </div>
       </section>

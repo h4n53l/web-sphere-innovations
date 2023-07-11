@@ -1,24 +1,14 @@
 import PageTitle from "@/components/layout/PageTitle";
 import ProjectsSlider from "@/components/projects/ProjectsSlider";
-import { projectPages } from "@/utilities/pageTexts";
+import projects from "@/sanity/schemas/projects";
+import { sanityClient, urlFor } from "@/utilities/sanityInit";
 import { GetStaticProps } from "next/types";
 import { Fragment } from "react";
 
-type propTypes = {
-  pageInfo: {
-    slug: string;
-    title: string;
-    category: string;
-    description: string;
-    outcome: string;
-    client: string;
-    duration: string;
-    conclusion: string;
-    steps: { step: string; description: string }[];
-  };
-};
 
-const Project = ({ pageInfo }: propTypes) => {
+const Project = ({ pageInfo, otherProjects }) => {
+
+  
   return (
     <Fragment>
       <PageTitle pageTitle={"Project Details"} />
@@ -28,8 +18,8 @@ const Project = ({ pageInfo }: propTypes) => {
             <div className="col-12 order-first">
               <div className="portfolio-thumb">
                 <img
-                  src="../assets/img/portfolio/portfolio-details.jpg"
-                  alt="Image"
+                  src={urlFor(pageInfo.mainImage).width(1170).url()}
+                  alt={pageInfo.link}
                 />
               </div>
             </div>
@@ -37,6 +27,10 @@ const Project = ({ pageInfo }: propTypes) => {
               <div className="portfolio-info-box wow fadeInUp">
                 <h4 className="box-title">Project Info</h4>
                 <ul>
+                  <li>
+                    <span className="info-title">Link</span>
+                    <span className="info">{pageInfo.link}</span>
+                  </li>
                   <li>
                     <span className="info-title">Clients</span>
                     <span className="info">{pageInfo.client}</span>
@@ -63,15 +57,15 @@ const Project = ({ pageInfo }: propTypes) => {
                 <div className="row">
                   <div className="col-sm-6">
                     <img
-                      src="../assets/img/portfolio/portfolio-details-01.jpg"
-                      alt="Image"
+                  src={urlFor(pageInfo.featureImageOne).width(370).url()}
+                  alt={pageInfo.link}
                       className="mb-30"
                     />
                   </div>
                   <div className="col-sm-6">
                     <img
-                      src="../assets/img/portfolio/portfolio-details-02.jpg"
-                      alt="Image"
+                  src={urlFor(pageInfo.featureImageTwo).width(370).url()}
+                  alt={pageInfo.link}
                       className="mb-30"
                     />
                   </div>
@@ -82,16 +76,16 @@ const Project = ({ pageInfo }: propTypes) => {
                 <div className="row">
                   <div className="col-lg-9">
                     <div className="feature-lists mt-30">
-{pageInfo.steps.map((step) => {
+{pageInfo.details.map((detail) => {
 return(
                       <div className="simple-icon-box icon-left mb-30 wow fadeInUp">
                         <div className="icon">
                           <i className="flaticon-crop" />
                         </div>
                         <div className="content">
-                          <h4 className="title">{step.step}</h4>
+                          <h4 className="title">{detail.service}</h4>
                           <p>
-                            {step.description}
+                            {detail.description}
                           </p>
                         </div>
                       </div>
@@ -111,22 +105,49 @@ return(
       </section>
       {/*====== Portfolio Area End ======*/}
       {/*====== Related Portfolio Start ======*/}
-<ProjectsSlider />
+<ProjectsSlider projects={otherProjects} />
     </Fragment>
   );
 };
 
 export default Project;
 
-export const getServerSideProps: GetStaticProps = (context) => {
-  const { params } = context;
-  const project = params!.project;
+export const getStaticProps = async (params: { params: { slug: any; }; }) => {
+  const pageSlug = params.params.slug;
 
-  const pageInfo = projectPages.filter((pageData) => {
-    return pageData.slug === project;
-  })[0];
+  if (!pageSlug) {
+    return {
+      notFound: true,
+    };
+  }
 
-  return {
-    props: { pageInfo },
-  };
+  const project = await sanityClient.fetch(`*[ _type == "projects" && slug.current == "${pageSlug}"]`)
+  const otherProjects = await sanityClient.fetch(`*[ _type == "projects"]`)
+
+  const pageInfo = project[0];
+
+  console.log(pageInfo)
+
+  if (!pageInfo) {
+    return {
+      notFound: true,
+    };
+  } else {
+    return {
+      props: { pageInfo, otherProjects },
+    };
+  }
+};
+
+export const getStaticPaths = async () => {
+
+    const query = `*[ _type == "projects"].slug.current`;
+
+  const services = await sanityClient.fetch(query)
+
+  const paths = services.map(( slug: any) =>({
+     params: {slug}
+  }));
+
+  return { paths, fallback: false };
 };
