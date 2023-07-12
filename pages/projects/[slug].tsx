@@ -1,14 +1,11 @@
+import {Fragment} from 'react';
 import PageTitle from "@/components/layout/PageTitle";
 import ProjectsSlider from "@/components/projects/ProjectsSlider";
-import projects from "@/sanity/schemas/projects";
 import { sanityClient, urlFor } from "@/utilities/sanityInit";
-import { GetStaticProps } from "next/types";
-import { Fragment } from "react";
 
 
-const Project = ({ pageInfo, otherProjects }) => {
+const Project = ({ pageInfo, otherProjects }: {pageInfo: any, otherProjects: any}) => {
 
-  
   return (
     <Fragment>
       <PageTitle pageTitle={"Project Details"} />
@@ -76,7 +73,7 @@ const Project = ({ pageInfo, otherProjects }) => {
                 <div className="row">
                   <div className="col-lg-9">
                     <div className="feature-lists mt-30">
-{pageInfo.details.map((detail) => {
+{pageInfo.details.map((detail: { service: string ; description: string }) => {
 return(
                       <div className="simple-icon-box icon-left mb-30 wow fadeInUp">
                         <div className="icon">

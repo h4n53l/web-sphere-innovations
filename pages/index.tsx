@@ -9,7 +9,7 @@ import Testimonials from '@/components/testimonial/Testimonials'
 import { sanityClient } from '@/utilities/sanityInit'
 
 
-export default function Home({reviews, projects}) {
+export default function Home({reviews, projects}: {reviews: any, projects: any}) {
   console.log(projects)
   return (
       <Fragment>

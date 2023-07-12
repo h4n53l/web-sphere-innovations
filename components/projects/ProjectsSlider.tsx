@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { portfolioslider } from "../testimonial/sliderProps";
 import { urlFor } from "@/utilities/sanityInit";
 
-const ProjectsSlider = ({projects}) => {
+const ProjectsSlider = ({projects}: {projects: any}) => {
     return (
         <section className="related-portfolio bg-color-primary-7 section-gap">
         <div className="container">
@@ -12,8 +12,8 @@ const ProjectsSlider = ({projects}) => {
             <span className="tagline">Web Sphere Innovations</span>
           </div>
           <Slider {...portfolioslider} className="row portfolio-slider">
-          {projects.map((project, index) =>{ return (
-                        <div className="portfolio-items-two">
+          {projects.map((project: any, index: number) =>{ return (
+                        <div key={index} className="portfolio-items-two">
                         <div className="portfolio-thumb">
                           <img src={urlFor(project.mainImage).width(370).url()} alt={project.title} />
                           <Link href={`projects/${project.slug.current}`}/>

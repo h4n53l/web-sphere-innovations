@@ -1,7 +1,6 @@
 import PageTitle from "@/components/layout/PageTitle";
 import ServiceDescription from "@/components/services/ServiceDescription";
 import { sanityClient } from "@/utilities/sanityInit";
-import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -49,7 +48,7 @@ const Service = ({ pageInfo }: propTypes) => {
                 <h4 className="title">
                   <Link href="/services/web-development">Web Development</Link>
                 </h4>
-                <p>Quis autem reprehenderit quiinea volup tate</p>
+                <p>Click to learn more about our web development services.</p>
               </div>
             </div>
             <div
@@ -63,7 +62,7 @@ const Service = ({ pageInfo }: propTypes) => {
                 <h4 className="title">
                   <Link href="/services/seo">Search Engine Optimisation</Link>
                 </h4>
-                <p>Quis autem reprehenderit quiinea volup tate</p>
+                <p>Click to learn more about our search engine optimisation services.</p>
               </div>
             </div>
 
@@ -78,7 +77,7 @@ const Service = ({ pageInfo }: propTypes) => {
                 <h4 className="title">
                   <Link href="/services/cms">Content Management</Link>
                 </h4>
-                <p>Quis autem reprehenderit quiinea volup tate</p>
+                <p>Click to learn more about our content management services.</p>
               </div>
             </div>
           </div>

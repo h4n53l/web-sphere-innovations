@@ -73,7 +73,7 @@ const ProjectsIsotope = ({projects}) => {
       </div>
       <div className="row filter-items">
         {projects.map((project, index) =>{ return (
-        <div className={`col-lg-4 col-sm-6 filter-item ${project.category}`}>
+        <div key={index} className={`col-lg-4 col-sm-6 filter-item ${project.category}`}>
         <div className="portfolio-items-two mt-50">
           <div className="portfolio-thumb">
             <img src={urlFor(project.mainImage).width(370).url()} alt={project.title} />
