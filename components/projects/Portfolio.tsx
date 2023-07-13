@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Portfolio = ({projects}) => {
+const Portfolio = ({projects}: any) => {
 
     const ProjectsIsotope = dynamic(
         () => import("./ProjectsIsotope"),

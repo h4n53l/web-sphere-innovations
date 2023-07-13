@@ -9,7 +9,7 @@ const TestimonialSlider = ({reviews}: any) => {
     <Fragment>
         {" "}
         <Slider {...testimonialslidertwo} className="testimonial-slider-two row">
-{reviews.map((review, index: number) =>{ 
+{reviews.map((review: any, index: number) =>{ 
   return (
           <div key={index} className="testimonial-item">
             <div className="content">

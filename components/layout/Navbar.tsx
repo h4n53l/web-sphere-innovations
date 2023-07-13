@@ -64,9 +64,9 @@ const Navbar = ({dark}: any) => {
                   <Link href={`${rtl()}`}>
                     
                       <img
-                      height={200}
-                      width={"auto"}
-                        src={`/assets/img/${dark ? "logo-white" : "logo"}.svg`}
+                      height={"auto"}
+                      width={200}
+                        src={`/assets/img/${dark ? "logo-white" : "logo"}.png`}
                         alt="Web Sphere Innovations"
                       />
                     
