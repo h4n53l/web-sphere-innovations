@@ -20,11 +20,11 @@ const Service = ({ pageInfo }: propTypes) => {
       <PageTitle pageTitle={pageInfo.title} />
       {/*====== Page Title Area End ======*/}
       {/*====== About Area Start ======*/}
-       <ServiceDescription
+      <ServiceDescription
         serviceHeading={pageInfo.heading}
         description={pageInfo.description}
         subServiceList={pageInfo.details}
-      /> 
+      />
       {/*====== About Area End ======*/}
       {/*====== Service Section Start ======*/}
       <section
@@ -62,7 +62,10 @@ const Service = ({ pageInfo }: propTypes) => {
                 <h4 className="title">
                   <Link href="/services/seo">Search Engine Optimisation</Link>
                 </h4>
-                <p>Click to learn more about our search engine optimisation services.</p>
+                <p>
+                  Click to learn more about our search engine optimisation
+                  services.
+                </p>
               </div>
             </div>
 
@@ -77,7 +80,9 @@ const Service = ({ pageInfo }: propTypes) => {
                 <h4 className="title">
                   <Link href="/services/cms">Content Management</Link>
                 </h4>
-                <p>Click to learn more about our content management services.</p>
+                <p>
+                  Click to learn more about our content management services.
+                </p>
               </div>
             </div>
           </div>
@@ -90,39 +95,26 @@ const Service = ({ pageInfo }: propTypes) => {
 
 export default Service;
 
-
-export const getStaticProps = async (params: { params: { slug: any; }; }) => {
+export const getStaticProps = async (params: { params: { slug: any } }) => {
   const pageSlug = params.params.slug;
-  console.log(params);
 
-  if (!pageSlug) {
-    return {
-      notFound: true,
-    };
-  }
-    const query = `*[ _type == "services" && slug.current == "${pageSlug}"]`;
+  const query = `*[ _type == "services" && slug.current == "${pageSlug}"]`;
 
-  const result = await sanityClient.fetch(query) 
+  const result = await sanityClient.fetch(query);
   const pageInfo = result[0];
-  if (!pageInfo) {
-    return {
-      notFound: true,
-    };
-  } else {
-    return {
-      props: { pageInfo },
-    };
-  }
+
+  return {
+    props: { pageInfo },
+  };
 };
 
 export const getStaticPaths = async () => {
+  const query = `*[ _type == "services"].slug.current`;
 
-    const query = `*[ _type == "services"].slug.current`;
+  const services = await sanityClient.fetch(query);
 
-  const services = await sanityClient.fetch(query)
-
-  const paths = services.map(( slug: any) =>({
-     params: {slug}
+  const paths = services.map((slug: any) => ({
+    params: { slug },
   }));
 
   return { paths, fallback: false };
