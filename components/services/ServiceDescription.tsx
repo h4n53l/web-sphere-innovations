@@ -1,10 +1,14 @@
 
-type propTypes = {serviceHeading: string,
-     description: string,
-      subServiceList: {service: string, description: string}[]
+type propTypes = {
+      serviceHeading: string;
+      description: string;
+      subServiceList: {service: string, description: string}[];
+      imageOne: string;
+      imageTwo: string;
+      imageThree: string;
     }
 
-const ServiceDescription = ({serviceHeading, description, subServiceList}: propTypes) => {
+const ServiceDescription = ({serviceHeading, description, subServiceList, imageOne, imageTwo, imageThree}: propTypes) => {
 
   return (
         <section className="about-section section-gap overflow-hidden">
@@ -41,19 +45,19 @@ const ServiceDescription = ({serviceHeading, description, subServiceList}: propT
                   <div className="col-sm-6 wow fadeInUp">
                     <img
                       className="mb-30"
-                      src="/assets/img/fancy-gallery/05.jpg"
+                      src={imageOne}
                       alt="About Image"
                     />
                   </div>
                   <div className="col-sm-6 wow fadeInUp">
                     <img
                       className="mb-30"
-                      src="/assets/img/fancy-gallery/06.jpg"
+                      src={imageTwo}
                       alt="About Image"
                     />
                     <img
                       className="mb-30"
-                      src="/assets/img/fancy-gallery/07.jpg"
+                      src={imageThree}
                       alt="About Image"
                     />
                   </div>

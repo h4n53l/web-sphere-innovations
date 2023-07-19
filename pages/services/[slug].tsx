@@ -1,11 +1,14 @@
 import PageTitle from "@/components/layout/PageTitle";
 import ServiceDescription from "@/components/services/ServiceDescription";
-import { sanityClient } from "@/utilities/sanityInit";
+import { sanityClient, urlFor } from "@/utilities/sanityInit";
 import Link from "next/link";
 import { Fragment } from "react";
 
 type propTypes = {
   pageInfo: {
+    featureImageOne: string;
+    featureImageTwo: string;
+    featureImageThree: string;
     title: string;
     slug: string;
     heading: string;
@@ -23,8 +26,10 @@ const Service = ({ pageInfo }: propTypes) => {
       <ServiceDescription
         serviceHeading={pageInfo.heading}
         description={pageInfo.description}
-        subServiceList={pageInfo.details}
-      />
+        subServiceList={pageInfo.details} 
+        imageOne={urlFor(pageInfo.featureImageOne).width(370).url()} 
+        imageTwo={urlFor(pageInfo.featureImageTwo).width(340).url()} 
+        imageThree={urlFor(pageInfo.featureImageThree).width(340).url()}      />
       {/*====== About Area End ======*/}
       {/*====== Service Section Start ======*/}
       <section
@@ -46,7 +51,7 @@ const Service = ({ pageInfo }: propTypes) => {
                   <i className="flaticon-subscription" />
                 </div>
                 <h4 className="title">
-                  <Link href="/services/web-development">Web Development</Link>
+                  <Link href="/services/web-design">Web Development</Link>
                 </h4>
                 <p>Click to learn more about our web development services.</p>
               </div>
