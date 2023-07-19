@@ -26,7 +26,7 @@ const Project = ({ pageInfo, otherProjects }: {pageInfo: any, otherProjects: any
                 <ul>
                   <li>
                     <span className="info-title">Link</span>
-                    <span className="info">{pageInfo.link}</span>
+                    <a href={pageInfo.link} className="info">{pageInfo.link}</a>
                   </li>
                   <li>
                     <span className="info-title">Clients</span>
