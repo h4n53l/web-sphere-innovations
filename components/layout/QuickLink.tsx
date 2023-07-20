@@ -4,14 +4,14 @@ const QuickLink = () => {
       <h4 className="widget-title">Quick Link</h4>
       <ul>
         <li>
-          <a href="#">Web Development</a>
+          <a href="services/web-design">Web Development</a>
         </li>
         
         <li>
-          <a href="#">Search Engine Optimization</a>
+          <a href="services/seo">Search Engine Optimization</a>
         </li>
         <li>
-          <a href="#">Content Management</a>
+          <a href="services/cms">Content Management</a>
         </li>
       </ul>
     </div>

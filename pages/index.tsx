@@ -34,7 +34,6 @@ export const getStaticProps = async () => {
 const reviews = await sanityClient.fetch(`*[ _type == "reviews"]`);
 const projects = await sanityClient.fetch(`*[ _type == "projects"]`);
 
-console.log(reviews)
 if (!reviews) {
   return {
     notFound: true,

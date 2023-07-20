@@ -19,8 +19,8 @@ const Consultation = ({ extraClass }: any) => {
             </div>
             <div className="input-field">
               <NiceSelect
-                value={["Subject One", "Subject Two", "Subject Three"]}
-                disable={"Subject"}
+                value={["Web Design", "SEO", "CMS"]}
+                disable={"Web Design"}
               />
             </div>
             <div className="input-field">

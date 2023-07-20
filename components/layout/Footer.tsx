@@ -14,7 +14,7 @@ const Footer = () => {
                 <h2 className="cta-title text-primary">Take action now and let's start your journey to success!</h2>
               </div>
               <div className="col-auto">
-                <a href="#" className="template-btn">
+                <a href="mailto:websphereinnovations@gmail.com" className="template-btn">
                   Get in Touch With Us <i className="fas fa-long-arrow-right" />
                 </a>
               </div>
@@ -33,9 +33,9 @@ const Footer = () => {
               <div className="col-lg-2 col-md-6 col-sm-6">
                 <Support />
               </div>
-              <div className="col-lg-4 col-md-6">
+              {/* <div className="col-lg-4 col-md-6">
                 <Newsletters />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="copyright-area">

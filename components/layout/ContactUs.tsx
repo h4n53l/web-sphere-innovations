@@ -6,10 +6,10 @@ const ContactUs = ({ logo, icons }: any) => {
       <h4 className="widget-title">Contact Us</h4>
       <div className="contact-content">
         <div className="phone-number">
-          <span>Phone Number</span>
-          <a href="tel:+01234567899">
+          <span>Email Address:</span>
+          <a href="mailto:websphereinnovations@gmail.com">
             <i className="far fa-phone" />
-            +012 (345) 678 99
+            websphereinnovations@gmail.com
           </a>
         </div>
         <p>
@@ -29,23 +29,13 @@ const ContactUs = ({ logo, icons }: any) => {
             <span>Follow</span>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.facebook.com/profile.php?id=100094352629718">
               <i className="fab fa-facebook-square" />
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://twitter.com/WebSphereInnov">
               <i className="fab fa-twitter-square" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fab fa-behance-square" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fab fa-linkedin" />
             </a>
           </li>
         </ul>
