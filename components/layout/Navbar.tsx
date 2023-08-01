@@ -4,10 +4,13 @@ import rtl from "../rtl/rtl";
 import MobileMenu from "./MobileMenu";
 import Sidebar from "./Sidebar";
 import { Home, Works, Pages, Contact, Services } from "./menu";
+import ContactForm from "../ContactForm";
 
 const Navbar = ({dark}: any) => {
     const [mobileToggle, setMobileToggle] = useState(false);
     const [sidebarToggle, setSidebarToggle] = useState(false);
+    const [contactForm, setContactForm] = useState(false);
+    
 
     const Nav = () => (
         <nav className="nav-menu d-none d-xl-block">
@@ -79,10 +82,13 @@ const Navbar = ({dark}: any) => {
               <div className="header-right">
                 <ul className="header-extra">
                   <li className="header-btns d-none d-md-block">
-                    <a href="#" className="template-btn">
-                      Let’s Talk
+                    <button 
+                    className={contactForm ? "template-btn-danger" :"template-btn"}
+                    onClick={()=>setContactForm(!contactForm)}
+                    >
+                      {contactForm ? "Close Form" :"Let's Talk"}
                       <i className="far fa-long-arrow-right" />
-                      </a>
+                      </button>
                   </li>
                   <li className="d-none d-xl-block">
                     <a
@@ -109,9 +115,12 @@ const Navbar = ({dark}: any) => {
               </div>
             </div>
           </div>
-          <Sidebar active={sidebarToggle} close={() => setSidebarToggle(false)} />
+          {/* <Sidebar active={sidebarToggle} close={() => setSidebarToggle(false)} /> */}
         </header>
         <MobileMenu active={mobileToggle} close={() => setMobileToggle(false)} />
+        {contactForm &&
+<ContactForm/>
+        }
       </Fragment>
     );
 }

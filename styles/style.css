@@ -77,6 +77,7 @@
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-dark: #151516;
   --color-deep-dark: #0b0b0b;
+  --color-danger: #ff0000;
   --font-nunito: 'Nunito', sans-serif;
   --font-nunito-sans: 'Nunito Sans', sans-serif;
   --font-quicksand: 'Quicksand', sans-serif;
@@ -1301,6 +1302,29 @@ textarea {
   -ms-user-select: none;
   user-select: none;
   background-color: var(--color-primary);
+  border: none;
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.template-btn-danger {
+  display: inline-block;
+  color: var(--color-white);
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: var(--color-danger);
   border: none;
   padding: 15px 35px;
   font-size: 18px;
