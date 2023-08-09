@@ -2,13 +2,10 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import rtl from "../rtl/rtl";
 import MobileMenu from "./MobileMenu";
-import Sidebar from "./Sidebar";
-import { Home, Works, Pages, Contact, Services } from "./menu";
 import ContactForm from "../ContactForm";
 
 const Navbar = ({dark}: any) => {
     const [mobileToggle, setMobileToggle] = useState(false);
-    const [sidebarToggle, setSidebarToggle] = useState(false);
     const [contactForm, setContactForm] = useState(false);
     
 
@@ -17,7 +14,6 @@ const Navbar = ({dark}: any) => {
         <ul className="primary-menu">
           <li>
             <Link href="/">
-              
                 Home
                 <span className="">
                 </span>
@@ -25,37 +21,32 @@ const Navbar = ({dark}: any) => {
             </Link>
           </li>
           <li>
-            <Link href="#">
+            <a>
                 Services
                 <span className="dd-trigger">
                   <i className="fas fa-angle-down" />
                 </span>
-            </Link>
-            <ul className="submenu">
-              <Services />
-            </ul>
-          </li>
-          {/* <li>
-              <Works />
-          </li> */}
-          <li>
-            <a href="#">
-              About Us
-              <span className="dd-trigger">
-                <i className="fas fa-angle-down" />
-              </span>
             </a>
             <ul className="submenu">
-              <Pages />
+    <li>
+      <a href={`/services/web-design`}>Web Design</a>
+    </li>
+    <li>
+      <a href={`/services/seo`}>Search Engine Optimisation</a>
+    </li>
+    <li>
+      <a href={`/services/cms`}>Content Management Services</a>
+    </li>
             </ul>
           </li>
           <li>
-            <Contact />
+            <a href="/about">
+              About Us
+            </a>
           </li>
         </ul>
       </nav>
     )
-
 
     return (
         <Fragment>
@@ -90,17 +81,6 @@ const Navbar = ({dark}: any) => {
                       <i className="far fa-long-arrow-right" />
                       </button>
                   </li>
-                  <li className="d-none d-xl-block">
-                    <a
-                      href="#"
-                      className="off-canvas-btn"
-                      onClick={() => setSidebarToggle(true)}
-                    >
-                      <span />
-                      <span />
-                      <span />
-                    </a>
-                  </li>
                   <li className="d-xl-none">
                     <div
                       className="navbar-toggler"
@@ -115,11 +95,12 @@ const Navbar = ({dark}: any) => {
               </div>
             </div>
           </div>
-          {/* <Sidebar active={sidebarToggle} close={() => setSidebarToggle(false)} /> */}
         </header>
         <MobileMenu active={mobileToggle} close={() => setMobileToggle(false)} />
         {contactForm &&
-<ContactForm/>
+            <div className="d-flex align-items-center justify-content-center p-5 m-5">
+              <ContactForm />
+          </div>
         }
       </Fragment>
     );

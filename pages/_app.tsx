@@ -11,12 +11,15 @@ import "@/styles/responsive.css";
 import "@/styles/lity.min.css";
 import Layout from "@/components/layout/Layout";
 import { Fragment } from "react";
-import { Head } from "next/document";
+import Head from "next/head";
 
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Fragment>
+              <Head>
+        <title>Web Sphere Innovations</title>
+        </Head>
       <Layout>
       <Component {...pageProps} />
       </Layout>

@@ -1,6 +1,7 @@
 import sendEmail from "@/utilities/helpers/sendEmail";
 import useContactForm from "@/utilities/hooks/useContactForm";
 import { Fragment, useState } from "react";
+import Swal from "sweetalert2";
 
 const ContactForm = ({ extraClass }: any) => {
   const { values, handleChange } = useContactForm();
@@ -10,18 +11,29 @@ const ContactForm = ({ extraClass }: any) => {
 const handleSubmit = async (event: any) => {
   event.preventDefault();
   try {
-    const req = await sendEmail(values.name, values.email, values.subject, values.message);
-    if (req.status === 250) {
+    const request = await sendEmail(values.name, values.email, values.subject, values.message);
+    if (request.status === 200) {
       setResponseMessage(
           {isSuccessful: true, message: 'Thank you for your message.'});
+          Swal.fire({
+            icon: "success",
+            title: "Inquiry Submitted",
+            text: "Thank you very much for your inquiry. We will get back to you shortly.",
+            showConfirmButton: false,
+  timer: 1500
+          });
+          values.email="";
+          values.name = "";
+          values.message = "";
+          values.subject = "";
     }
   } catch (error) {
-    console.log(error);
     setResponseMessage({
       isSuccessful: false,
       message: 'Oops something went wrong. Please try again.',
     });
   }
+
 };
   return (
     <Fragment>
@@ -39,7 +51,6 @@ const handleSubmit = async (event: any) => {
               id="name"
               value={values.name}
               onChange={handleChange}
-              placeholder="Full Name"
             />
           </div>
           <div className="input-field">
@@ -50,7 +61,6 @@ const handleSubmit = async (event: any) => {
               value={values.email}
               onChange={handleChange}
               type="email"
-              placeholder="Email Address"
             />
           </div>
           <div className="input-field">

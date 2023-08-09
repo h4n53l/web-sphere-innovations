@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import Head from 'next/head'
 import Hero from '@/components/Hero'
 import Services from '@/components/services/Services'
 import Features from '@/components/Features'
@@ -10,12 +11,9 @@ import { sanityClient } from '@/utilities/sanityInit'
 
 
 export default function Home({reviews, projects}: {reviews: any, projects: any}) {
-  console.log(projects)
   return (
       <Fragment>
-        {/* <head>
-        <title>Web Sphere Innovations</title>
-        </head> */}
+
 <Hero/>
 <Services/>
 <div className="section-blob-bg">

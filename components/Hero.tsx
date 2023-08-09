@@ -1,4 +1,9 @@
+import { useState } from "react";
+import ContactForm from "./ContactForm";
+
 const Hero = () => {
+  const [contactForm, setContactForm] = useState(false)
+
   return (
     <section className="hero-area-two have-animate-icons">
       <div className="container">
@@ -17,18 +22,28 @@ const Hero = () => {
                 interfaces that not only engage your audience but also leave a
                 lasting impression.
               </p>
-              <a href="#" className="template-btn">
-                Get Started With Us <i className="far fa-long-arrow-right" />
-              </a>
+              <button
+                onClick={()=> setContactForm(!contactForm)}
+                className={contactForm ? "template-btn-danger" :"template-btn"}>
+                  {contactForm ? "Close Form" : "Get in Touch With Us"} <i className="fas fa-long-arrow-right" />
+                </button>
             </div>
           </div>
           <div className="col-12">
+          {contactForm ?
+            <div className="d-flex align-items-center justify-content-center pb-5 mb-5">
+            <div className="">
+              <ContactForm />
+            </div>
+          </div>
+          :
             <div className="hero-img wow fadeInDown" data-wow-delay="0.4s">
               <img
                 src="/assets/img/hero/hero-illustration-two.png"
                 alt="Illustration"
               />
             </div>
+}
           </div>
         </div>
       </div>

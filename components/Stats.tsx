@@ -31,7 +31,7 @@ const Stats = () => {
               <div className="col-xl-2 col-lg-3 col-sm-5">
                 <div className="counter-item counter-white mt-40">
                   <div className="counter-wrap">
-                    <Counter decimals={0} end={0} />
+                    <Counter decimals={0} end={1} />
                     <span className="suffix">+</span>
                   </div>
                   <h6 className="title">Years Of Operation</h6>

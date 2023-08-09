@@ -1,10 +1,13 @@
+import { useState } from "react";
+import ContactForm from "../ContactForm";
 import ContactUs from "./ContactUs";
 import CopyRight from "./CopyRight";
-import Newsletters from "./Newsletters";
 import QuickLink from "./QuickLink";
 import Support from "./Support";
 
 const Footer = () => {
+const [contactForm, setContactForm] = useState(false)
+
     return (
         <footer className="template-footer bg-color-primary text-white-version">
         <div className="footer-cta-area">
@@ -14,12 +17,21 @@ const Footer = () => {
                 <h2 className="cta-title text-primary">Take action now and let's start your journey to success!</h2>
               </div>
               <div className="col-auto">
-                <a href="mailto:websphereinnovations@gmail.com" className="template-btn">
-                  Get in Touch With Us <i className="fas fa-long-arrow-right" />
-                </a>
+                <button
+                onClick={()=> setContactForm(!contactForm)}
+                className={contactForm ? "template-btn-danger" :"template-btn"}>
+                  {contactForm ? "Close Form" : "Get in Touch With Us"} <i className="fas fa-long-arrow-right" />
+                </button>
               </div>
             </div>
           </div>
+          {contactForm &&
+            <div className="d-flex align-items-center justify-content-center p-2">
+            <div className="">
+              <ContactForm />
+            </div>
+          </div>
+        }
         </div>
         <div className="container">
           <div className="footer-widgets-area">
@@ -33,9 +45,6 @@ const Footer = () => {
               <div className="col-lg-2 col-md-6 col-sm-6">
                 <Support />
               </div>
-              {/* <div className="col-lg-4 col-md-6">
-                <Newsletters />
-              </div> */}
             </div>
           </div>
           <div className="copyright-area">

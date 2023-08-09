@@ -25,7 +25,7 @@ const Features = () => {
                 <div className="feature-text-block content-l-spacing">
                   <div className="section-heading mb-50">
                     <h2 className="title">
-                      Service Features
+                      Why Choose Us?
                     </h2>
                     <span className="tagline">
                       Web Sphere Innovations
