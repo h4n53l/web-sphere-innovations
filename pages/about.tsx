@@ -76,15 +76,6 @@ const About = () => {
           </div>
         </section>
         
-        <div className="">
-          <div className="animate-icon d-none d-lg-block">
-            <img
-              src="/assets/img/shape/gradient-pipe.png"
-              alt="icon"
-              className="animate-rotate-me"
-            />
-          </div>
-        </div>
       </Fragment>
     </Layout>
   );
